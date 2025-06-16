@@ -1,27 +1,55 @@
-import React, { useState } from 'react';
-
-const Contact = () => {
-  const [formData, setFormData] = useState({
+  import { supabase } from '../lib/supabaseClient';
+  import React, { useState } from 'react';
+  
+  const Contact = () => { const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     division: '',
     message: '',
   });
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log('Form submitted:', formData);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
+  const { data, error } = await supabase.from('contact_form').insert([
+    {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      division: formData.division || null, // optional
+      message: formData.message,
+    },
+  ]);
 
+  if (error) {
+    console.error("Supabase insert error:", error.message);
+    alert("❌ Submission failed: " + error.message);
+    return;
+  }
+
+  alert("✅ Your message was submitted successfully!");
+  console.log("Supabase response:", data);
+
+  // Clear the form
+  setFormData({
+    name: '',
+    email: '',
+    company: '',
+    division: '',
+    message: '',
+  });
+};
+
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
+  
   return (
     <section id="contact" className="py-20 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
@@ -31,7 +59,7 @@ const Contact = () => {
             Ready to scale smarter and innovate faster? Let's discuss how NextMav can transform your business.
           </p>
         </div>
-
+  
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
@@ -40,14 +68,14 @@ const Contact = () => {
               <p>Phone: +2348039326564</p>
               <p>Address: Md Innovation Drive, Tech City</p>
             </div>
-
+  
             <div className="mt-8">
               <h4 className="text-xl font-bold mb-4">Office Hours</h4>
               <p className="text-gray-600 dark:text-gray-300">
                 Monday - Friday: 9:00 AM - 6:00 PM
               </p>
             </div>
-
+  
             <div className="mt-8">
               <h4 className="text-xl font-bold mb-4">What to Expect</h4>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
@@ -58,7 +86,7 @@ const Contact = () => {
               </ul>
             </div>
           </div>
-
+  
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -75,7 +103,7 @@ const Contact = () => {
                 required
               />
             </div>
-
+  
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email *
@@ -91,7 +119,7 @@ const Contact = () => {
                 required
               />
             </div>
-
+  
             <div>
               <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Company
@@ -106,7 +134,7 @@ const Contact = () => {
                          focus:ring-2 focus:ring-blue-500 dark:bg-gray-800"
               />
             </div>
-
+  
             <div>
               <label htmlFor="division" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Interested Division
@@ -125,7 +153,7 @@ const Contact = () => {
                 <option value="both">Both Divisions</option>
               </select>
             </div>
-
+  
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Project Details *
@@ -142,7 +170,7 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-
+  
             <button type="submit" className="btn-primary w-full">
               Start Your Project
             </button>
@@ -151,6 +179,7 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+  };
 
-export default Contact;
+  
+  export default Contact;
