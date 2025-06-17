@@ -6,19 +6,19 @@ const Blog = () => {
       title: 'The Future of AI in Business: Opportunities & Risks',
       excerpt: 'Explore how artificial intelligence is reshaping business landscapes and what it means for your organization.',
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80',
-      date: 'March 15, 2024',
+      date: '',
     },
     {
       title: 'Cloud Cost Optimization: How Companies Save Millions',
       excerpt: 'Learn the strategies and best practices for optimizing your cloud infrastructure costs.',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-      date: 'March 10, 2024',
+      date: '',
     },
     {
       title: 'Cybersecurity in 2025: Key Trends & Challenges',
       excerpt: 'Stay ahead of emerging cybersecurity threats and prepare your organization for the future.',
       image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80',
-      date: 'March 5, 2024',
+      date: '',
     },
   ];
 

@@ -6,32 +6,32 @@ const Footer = () => {
     {
       name: 'Twitter',
       icon: Twitter,
-      url: 'https://twitter.com/YourHandle',
-      handle: '@YourHandle'
+      url: 'https://x.com/nextmav?t=o7aJjjnx7UbH3lfnivmQow&s=08',
+      handle: 'Nextmav X'
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/YourHandle',
-      handle: '@YourHandle'
+      url: 'https://www.instagram.com/nextmav_?igsh=bHVyazRuN3FzNzI5',
+      handle: 'Nextmav IG'
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com/company/nextmav',
-      handle: 'NextMav'
+      url: 'https://www.linkedin.com/in/nextmav-agency-773a5036b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      handle: 'NextMav Linkin'
     },
     {
       name: 'YouTube',
       icon: Youtube,
-      url: 'https://youtube.com/@nextmav',
+      url: 'https://www.youtube.com/@Nextmav',
       handle: 'NextMav Channel'
     },
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://facebook.com/nextmav',
-      handle: 'NextMav'
+      url: 'https://www.facebook.com/share/1Bfv5KDGZD/',
+      handle: 'NextMav Facebook'
     }
   ];
 
